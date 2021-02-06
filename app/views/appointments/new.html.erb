@@ -1,0 +1,20 @@
+<h1>Make An Appointment</h1>
+
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |error|%>
+            <li> 
+                <%= error %> 
+            </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @appointment do |f| %>
+    <%= f.label :patient_id %>
+    <%= f.collection_select :patient_id, Patient.all, :id, :name %>
+    <%= f.label :doctor_id %>
+    <%= f.number_field :doctor_id %>
+    <%= f.datetime_field :appointment_datetime %>
+    <%= f.submit %>
+<% end %>

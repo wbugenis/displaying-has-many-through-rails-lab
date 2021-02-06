@@ -10,7 +10,12 @@ class AppointmentsController < ApplicationController
     
     def create
         @appointment = Appointment.create(appointment_params)
-        redirect_to appointment_path(@appointment)
+        if @appointment.valid?
+            redirect_to appointment_path(@appointment)
+        else 
+            flash[:errors] = @appointment.errors.full_messages
+            redirect_to new_appointment_path
+        end
     end    
 
     def edit
