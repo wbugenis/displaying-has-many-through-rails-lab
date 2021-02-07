@@ -8,7 +8,7 @@ class Appointment < ApplicationRecord
   validates :appointment_datetime, presence: true
 
   def print_time 
-    appointment_datetime.strftime("%B %d, %Y at %I:%M")
+    appointment_datetime.strftime("%B %d, %Y at %H:%M")
   end  
 
 

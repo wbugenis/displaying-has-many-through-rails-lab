@@ -1,5 +1,6 @@
 <h1> <%= @patient.name %> </h1>
 <p> age: <%= @patient.age %> </p>
+<% if @patient.appointments%>
 <ul> 
     <% @patient.appointments.each do |appointment| %>
         <li>
@@ -8,3 +9,4 @@
         </li>
     <%end%>
 </ul>  
+<% end %>
